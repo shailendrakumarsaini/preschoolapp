@@ -1,0 +1,142 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated fadeInDown">
+                <form [formGroup]="organizationForm" (ngSubmit)="saveOrganization()">
+                    <div class="card card-hover tableshadow mt-3">
+                            <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)"> 
+                                <div class="row">
+                                <div class="col-md-12">
+                                <h5 style="font-family: fantasy" class="text-white">Create Organization Details
+                                        <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/admin/organization']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                </div>
+                                </div>
+                            </div>
+                            <div class="border-top">
+                                <div class="card-body">
+                                        
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                    <label class="label-input100">Name*</label>
+                                                    <input type="text" formControlName="name" class="form-control"
+                                                        (blur)="logValidationMessages()" [class.is-invalid]="formErrors.name">
+                                                    <div *ngIf="formErrors.name" class="invalid-feedback">{{formErrors.name}}</div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                    <label class="label-input100">Logo</label>
+                                                    <input type="file" class="form-control">    
+                                                    <!-- <span class="input-group-text" (click)="fileInput.click()">Choose Image</span> -->
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Code</label>
+                                                    <input type="text" class="form-control" formControlName="organizationCode"
+                                                        >
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Area</label>
+                                                    <input type="text" class="form-control" formControlName="area">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Website</label>
+                                                    <div class="input-group">
+                                                            <input type="text" class="form-control" placeholder="example : www.bulbulapps.com" formControlName="website">
+                                                    </div>
+                                            </div>
+
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Sub Area</label>
+                                                    <input type="text" class="form-control" formControlName="subArea">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Contact Email</label>
+                                                    <input type="text" class="form-control" formControlName="contactEmail">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">City</label>
+                                                    <input type="text" class="form-control" formControlName="city">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Contact Phone</label>
+                                                    <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                              <span class="input-group-text" id="basic-addon1">+ 91</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" formControlName="contactPhoneNumber">
+                                                          </div>
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">State</label>
+                                                    <input type="text" class="form-control" formControlName="state">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Admin Name*</label>
+                                                    <input type="text" class="form-control" formControlName="adminName" class="form-control"
+                                                        (blur)="logValidationMessages()" [class.is-invalid]="formErrors.adminName">
+                                                    <div *ngIf="formErrors.adminName" class="invalid-feedback">{{formErrors.adminName}}</div>
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Country</label>
+                                                    <input type="text" class="form-control" formControlName="country">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Admin Email*</label>
+                                                    <input type="text" class="form-control" formControlName="adminEmail" class="form-control"
+                                                    (blur)="logValidationMessages()" [class.is-invalid]="formErrors.adminEmail">
+                                                    <div *ngIf="formErrors.adminEmail" class="invalid-feedback">{{formErrors.adminEmail}}</div>
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Pin Code</label>
+                                                    <input type="text" class="form-control" formControlName="pinCode">
+                                            </div>
+
+                                            <div class="col-md-6 mt-2">
+                                                    <label class="label-input100">Admin Contact</label>
+                                                    <div class="input-group mb-3">
+                                                            <div class="input-group-prepend">
+                                                              <span class="input-group-text" id="basic-addon1">+ 91</span>
+                                                            </div>
+                                                            <input type="text" class="form-control" formControlName="adminPhoneNumber">
+                                                          </div>
+                                            </div>
+
+                                            
+
+                                            </div>
+ 
+                                </div>
+                            </div>
+
+                            <div class="card-footer">
+                                    <div class="float-right" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetForm()">Reset</button>
+                                    <button type="submit" class="btn btn-success btn-sm" [disabled]="!organizationForm.valid">Save</button>
+                                    </div>
+                                    </div> 
+
+                            
+                        </div>
+                </form>
+        </div>
+    </div>
+    
+
+
+<!-- <pre>{{this.branchForm.value |json}}</pre> -->
+
+
+
+
+
+
+

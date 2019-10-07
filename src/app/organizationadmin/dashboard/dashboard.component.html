@@ -1,0 +1,589 @@
+<div class="page-wrapper">
+
+    <div class="container-fluid">
+        <h4 class="text-center mb-3 animated flash" style="font-family: sans-serif">Kkel Test Organization</h4>
+        <div class="row">
+            <!-- Column -->
+            <div class="col-md-6 col-lg-4 col-xlg-3 btn animated bounceIn">
+                <div class="card card-hover" (click)="scroll(target1)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #439AFF 0%, #6FB2FF 100%)">
+                        <h1 class="font-light text-white"><i class="fa fa-credit-card"></i></h1>
+                        <h6 class="text-white">Payments</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3 btn animated bounceInDown">
+                <div class="card card-hover" (click)="scroll(target2)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #FFBA56 0%, #FFC97B 100%)">
+                        <h1 class="font-light text-white"><i class="fas fa-file-export"></i></h1>
+                        <h6 class="text-white">Export Student Data
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-2 col-xlg-3 btn animated bounceInLeft">
+                <div class="card card-hover" (click)="scroll(target3)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #35D9B8 0%, #53DFC3 100%)">
+                        <h1 class="font-light text-white"><i class="fa fa-credit-card"></i></h1>
+                        <h6 class="text-white">Branches Payments</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-4 col-xlg-3 btn animated bounceInRight">
+                <div class="card card-hover" (click)="scroll(target4)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                        <h1 class="font-light text-white"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+                        <h6 class="text-white">Skills</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <div class="col-md-6 col-lg-4 col-xlg-3 btn animated bounceInUp">
+                <div class="card card-hover" (click)="scroll(target5)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                        <h1 class="font-light text-white"><i class="fa fa-cogs" aria-hidden="true"></i></h1>
+                        <h6 class="text-white">Branches Skills</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Column -->
+            <!-- Column -->
+            <div class="col-md-6 col-lg-4 col-xlg-3 btn animated swing">
+                <div class="card card-hover" (click)="scroll(target6)">
+                    <div class="box text-center" style="background: #2E8B57">
+                        <h1 class="font-light text-white"><i class="fa fa-spinner" aria-hidden="true"></i></h1>
+                        <h6 class="text-white">Curriculum Progress</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 col-xlg-3 btn animated wobble">
+                <div class="card card-hover" (click)="scroll(target7)">
+                    <div class="box text-center" style="background: linear-gradient(to right, #439AFF 0%, #6FB2FF 100%)">
+                        <h1 class="font-light text-white"><i class="fa fa-spinner" aria-hidden="true"></i></h1>
+                        <h6 class="text-white">Branches Curriculum Progress</h6>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card mb-3 tableshadow1 tableshadow card-hover" #target1>
+            <div class="card-header">
+                <h5 class="text-center" style="font-family: sans-serif">Payments</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6" *ngFor="let item of org_details">
+                        <div class="m-t-20">
+                            <div class="d-flex no-block align-items-center">
+                                <span>{{item.percentage == null ? 0 :item.percentage }}% {{item.name}}</span>
+                            </div>
+                            <div class="progress" *ngIf="item.percentage > 100">
+                                <div [style.width]="item.percentage+'%'" class="progress-bar progress-bar-striped"
+                                    role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress" *ngIf="item.percentage <= 100 && item.percentage >= 85">
+                                <div [style.width]="item.percentage+'%'"
+                                    class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress" *ngIf="item.percentage <= 85 && item.percentage >= 60">
+                                <div [style.width]="item.percentage+'%'"
+                                    class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+
+                            <div class="progress" *ngIf="item.percentage <= 59 && item.percentage >0">
+                                <div [style.width]="item.percentage+'%'"
+                                    class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                                    aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress" *ngIf="(item.percentage <= 0)">
+                                <div [style.width]="'0'+'%'" class="progress-bar progress-bar-striped bg-danger"
+                                    role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="progress" *ngIf="(item.percentage == null) && !(item.percentage <= 0)">
+                                <div [style.width]="'0'+'%'" class="progress-bar progress-bar-striped bg-danger"
+                                    role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card tableshadow2 tableshadow card-hover" #target2>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 d-flex flex-row comment-row m-t-0">
+                        <h5 style="font-family: sans-serif">Export Student Data</h5>
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-success btn-sm float-right">Download Here</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" #target3>
+            <div class="col-md-12">
+                <div class="card tableshadow3 tableshadow card-hover">
+                    <div class="card-header">
+                        <h5 class="text-center" style="font-family: sans-serif">Branches Payments</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table-hover table-bordered" datatable [dtOptions]="dtOptions[0]"
+                                [dtTrigger]="dtTrigger" id="first-table" style="text-transform: capitalize;">
+                                <thead style="font-family: fantasy" class="text-center text-secondary">
+                                    <tr>
+                                        <td>BranchName</td>
+                                        <td>City</td>
+                                        <td>Paid</td>
+                                        <td>Unpaid</td>
+                                        <td>Paid%</td>
+                                        <td>Unpaid%</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of branch_details" class="text-center"
+                                        style="font-family: sans-serif">
+                                        <td>{{item.branchName}}</td>
+                                        <td>{{item.city}}</td>
+                                        <td>{{item.paid}}</td>
+                                        <td>{{item.unpaid}}</td>
+                                        <td>
+                                            <div (click)="goToBranchPayment(item)" class="row">
+                                                <div class="col-md-8 mt-1">
+                                                    <div class="progress" *ngIf="item.paidPercent > 100">
+                                                        <div [style.width]="item.paidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped" role="progressbar"
+                                                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.paidPercent <= 100 && item.paidPercent >= 85">
+                                                        <div [style.width]="item.paidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-success"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.paidPercent <= 85 && item.paidPercent >= 60">
+                                                        <div [style.width]="item.paidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-info"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.paidPercent <= 59 && item.paidPercent > 0">
+                                                        <div [style.width]="item.paidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress" *ngIf="(item.paidPercent <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="(item.paidPercent == null) && !(item.paidPercent <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <span>{{item.paidPercent == null ? 0 :item.paidPercent }}%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div (click)="goToBranchPayment(item)" class="row">
+                                                <div class="col-md-8 mt-1">
+                                                    <div class="progress" *ngIf="item.unPaidPercent > 100">
+                                                        <div [style.width]="item.unPaidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped" role="progressbar"
+                                                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.unPaidPercent <= 100 && item.unPaidPercent >= 85">
+                                                        <div [style.width]="item.unPaidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-success"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.unPaidPercent <= 85 && item.unPaidPercent >= 60">
+                                                        <div [style.width]="item.unPaidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-info"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.unPaidPercent <= 59 && item.unPaidPercent >0">
+                                                        <div [style.width]="item.unPaidPercent+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress" *ngIf="(item.unPaidPercent <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="(item.unPaidPercent == null) && !(item.unPaidPercent <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <span>{{item.unPaidPercent == null ? 0 :item.unPaidPercent}}%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" #target4>
+            <div class="col-md-12">
+                <div class="card tableshadow4 tableshadow card-hover">
+                    <div class="card-header">
+                        <h5 class="text-center" style="font-family: sans-serif">Skills</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class=" table-hover table-bordered" datatable [dtOptions]="dtOptions[1]"
+                                [dtTrigger]="dtTrigger" id="second-table">
+                                <thead>
+                                    <tr class="text-center text-secondary" style="font-family: fantasy">
+                                        <td>Skill Name</td>
+                                        <td>Percentage</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let item of OrgSkillsInfoData"   class="text-center"
+                                        style="font-family: sans-serif;font-size: 14px">
+                                        <td [ngSwitch]="item.skillType"> 
+                                            <img *ngSwitchCase="'VISUAL'" src="../../../assets/images/Icon-Visual.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'LOGICAL'" src="../../../assets/images/Icon-logicall.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'VERBAL'" src="../../../assets/images/Icon-verbal.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'MUSICAL'" src="../../../assets/images/Icon-musical.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'BODILY'" src="../../../assets/images/icon-Bodily.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'NATURALIST'" src="../../../assets/images/Icon-naturalist.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'INTRAPERSONAL'" src="../../../assets/images/Icon-intrapersonal.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'INTERPERSONAL'" src="../../../assets/images/Icon-intrapersonal.png" style="width:20px;border-radius: 50%;"> 
+                                            <img *ngSwitchCase="'OTHERS'" src="../../../assets/images/Icon-interpersonal.png" style="width:20px;border-radius: 50%;"> 
+                                            {{item.skillType}}
+                                        </td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-10 mt-1">
+                                                    <!-- <div class="d-flex no-block align-items-center">
+                                                        <span>{{item.skillPercentage}}% Clicks</span>
+                                                    </div> -->
+                                                    <div class="progress" *ngIf="item.skillPercentage > 100">
+                                                        <div [style.width]="item.skillPercentage+'%'"
+                                                            class="progress-bar progress-bar-striped" role="progressbar"
+                                                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                        </div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.skillPercentage <= 100 && item.skillPercentage >= 85">
+                                                        <div [style.width]="item.skillPercentage+'%'"
+                                                            class="progress-bar progress-bar-striped bg-success"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.skillPercentage <= 85 && item.skillPercentage >= 60">
+                                                        <div [style.width]="item.skillPercentage+'%'"
+                                                            class="progress-bar progress-bar-striped bg-info"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="item.skillPercentage <= 59 && item.skillPercentage > 0">
+                                                        <div [style.width]="item.skillPercentage+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress" *ngIf="(item.skillPercentage <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                    <div class="progress"
+                                                        *ngIf="(item.skillPercentage == null) && !(item.skillPercentage <= 0)">
+                                                        <div [style.width]="'0'+'%'"
+                                                            class="progress-bar progress-bar-striped bg-danger"
+                                                            role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                            aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    <div class="d-flex no-block align-items-center">
+                                                        <span>{{item.skillPercentage == null ? 0 :item.skillPercentage }}%</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" #target5>
+            <div class="col-md-12">
+                <div class="card tableshadow4 tableshadow card-hover">
+                    <div class="card-header">
+                        <h5 class="text-center" style="font-family: sans-serif">Branches Skills</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table-hover table-bordered" datatable [dtOptions]="dtOptions[2]"
+                                [dtTrigger]="dtTrigger" id="third-table">
+                                <thead>
+                                    <tr class="text-center text-secondary" style="font-family: fantasy">
+                                        <td>Branch Name</td>
+                                        <td>Branch Address</td>
+                                        <td>City</td>
+                                        <td>Skill Info</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let item of SkillsBrachesInfodata" class="text-center"
+                                        style="font-family: sans-serif">
+                                        <td>{{item.branchName}}</td>
+                                        <td style="text-transform: lowercase">{{item.address }}</td>
+                                        <td>{{item.city}}</td>
+                                        <td>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                        <div *ngFor="let i of item.skills_progress" [ngSwitch]="i.skillType" style="width:100px;font-size: 14px">
+                                                                <img *ngSwitchCase="'VISUAL'" src="../../../assets/images/Icon-Visual.png" style="width:18px;border-radius: 50%;"> 
+                                                                <span *ngSwitchCase="'VISUAL'">{{i.skillType}}</span>
+                                                        </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                        <a class="gfg_tooltip" style="  text-decoration-line: underline;
+                                                        text-decoration-style: solid;">More 
+                                                                <span class="gfg_text"> 
+                                                                    <div *ngFor="let i of item.skills_progress" [ngSwitch]="i.skillType">
+                                                                            <img *ngSwitchCase="'VISUAL'" src="../../../assets/images/Icon-Visual.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'LOGICAL'" src="../../../assets/images/Icon-logicall.png" style="width:18px;border-radius: 50%;">
+                                                                            <img *ngSwitchCase="'VERBAL'" src="../../../assets/images/Icon-verbal.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'MUSICAL'" src="../../../assets/images/Icon-musical.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'BODILY'" src="../../../assets/images/icon-Bodily.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'NATURALIST'" src="../../../assets/images/Icon-naturalist.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'INTRAPERSONAL'" src="../../../assets/images/Icon-intrapersonal.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'INTERPERSONAL'" src="../../../assets/images/Icon-intrapersonal.png" style="width:18px;border-radius: 50%;"> 
+                                                                            <img *ngSwitchCase="'OTHERS'" src="../../../assets/images/Icon-interpersonal.png" style="width:18px;border-radius: 50%;">
+                                                                            <span>{{i.skillType}}</span>
+                                                                    </div>
+                                                                    
+                                                                </span> 
+                                                            </a>
+                                                </div>
+                                            </div>
+                                            
+                                            
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" #target6>
+            <div class="col-md-12">
+                <div class="card tableshadow5 tableshadow card-hover">
+                    <div class="card-header">
+                        <h5 class="text-center" style="font-family: sans-serif">Curriculum Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <table class="table table-hover table-bordered">
+                            <thead>
+                                <tr class="text-center text-secondary" style="font-family: fantasy">
+                                    <td>Month</td>
+                                    <td>Percentage</td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr *ngFor="let item of OrgMonthlyCurriculumdata" class="text-center"
+                                    style="font-family: sans-serif">
+                                    <td>{{item.month}}</td>
+                                    <td>
+
+
+                                        <div class="row">
+                                            <div class="col-md-11 mt-1">
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped bg-info"
+                                                        role="progressbar" style="width: 53%" aria-valuenow="50"
+                                                        aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-1">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <span>{{item.CurriculumPer}}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" #target7>
+            <div class="col-md-12">
+                <div class="card tableshadow1 tableshadow card-hover">
+                    <div class="card-header">
+                        <h5 class="text-center" style="font-family: sans-serif">Branches Curriculum Progress</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered" id="fifth-table">
+                                <thead>
+                                    <tr class="text-center text-secondary" style="font-family: fantasy">
+                                        <td>Branch Name</td>
+                                        <td>Address</td>
+                                        <td>City</td>
+                                        <td>Curriculum Info</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let item of CurriculumBrachesInfodata" class="text-center"
+                                        style="font-family: sans-serif">
+                                        <td>{{item.branchName}}</td>
+                                        <td>{{item.address}}</td>
+                                        <td>{{item.city}}</td>
+                                        <td>
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-md-4" *ngFor="let i of item.Curriculumset">
+                                                        {{i.month}} ({{i.monthStatus}})</div>
+                                                    <div class="col-md-2" *ngFor="let i of item.Curriculumset">
+                                                        <div class="d-flex no-block align-items-center m-t-25">
+                                                            <span>{{i.CurriculumPer}}%</span>
+                                                        </div>
+                                                        <div class="progress">
+                                                            <div class="progress-bar progress-bar-striped bg-info"
+                                                                role="progressbar" [style.width]="i.CurriculumPer+'%'"
+                                                                aria-valuenow="50" aria-valuemin="0"
+                                                                aria-valuemax="100">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card tableshadow1 tableshadow card-hover">
+                    <div class="card-body">
+                        <canvas id="lineChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="card">
+            <div class="card-body">
+                <h4 class="card-title m-b-0">Progress Box</h4>
+                <div class="m-t-20" *ngFor="let item of test">
+                    <div class="d-flex no-block align-items-center">
+                        <span>{{item.precent}}% Clicks</span>
+                    </div>
+                    <div class="progress" *ngIf="item.precent > 100">
+                        <div [style.width]="item.precent+'%'" class="progress-bar progress-bar-striped" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress" *ngIf="item.precent <= 100 && item.precent >= 85">
+                        <div [style.width]="item.precent+'%'" class="progress-bar progress-bar-striped bg-success" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress" *ngIf="item.precent <= 85 && item.precent >= 60">
+                        <div [style.width]="item.precent+'%'" class="progress-bar progress-bar-striped bg-info" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress" *ngIf="item.precent <= 59 && item.precent > 0">
+                        <div [style.width]="item.precent+'%'" class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress" *ngIf="(item.precent <= 0)">
+                        <div [style.width]="'0'+'%'" class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                    <div class="progress" *ngIf="(item.precent == null) && !(item.precent <= 0)">
+                        <div [style.width]="'0'+'%'" class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                            aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+    </div> 
+
+
+
+
+
+</div>

@@ -1,0 +1,135 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated bounceInDown">
+                <form [formGroup]="teacherForm" (ngSubmit)="saveTeacher()">
+                        <div class="card card-hover tableshadow mt-3">
+                                <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                <div class="row">
+                                <div class="col-md-12">
+                                <h5 style="font-family: fantasy" class="text-white">Create Teacher <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/branch/teacher']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                </div>
+                                </div>
+                                </div>
+                                <div class="card-body">
+                                <div class="row">
+                                <div class="col-sm-6">
+                                <label class="label-input100">First Name* </label>
+                                <input type="text" formControlName="firstName" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.firstName">
+                               <div *ngIf="formErrors.firstName" class="invalid-feedback">{{formErrors.firstName}}</div>
+                                </div>
+                                
+                                <!-- <div class="col-sm-6">
+                                <label class="label-input100">Last Name </label>
+                                <input type="text" formControlName="lastName" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.lastName">
+                                <div *ngIf="formErrors.lastName" class="invalid-feedback">{{formErrors.lastName}}</div>
+                                </div> -->
+
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Mobile Number </label>
+                                <input type="text" formControlName="mobileNumber" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.mobileNumber">
+                                <div *ngIf="formErrors.mobileNumber" class="invalid-feedback">{{formErrors.mobileNumber}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Role*</label>
+                                <input type="text" formControlName="role" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.role">
+                                <div *ngIf="formErrors.role" class="invalid-feedback">{{formErrors.role}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">App Name*</label>
+                                <input type="text" formControlName="appName" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.appName">
+                                <div *ngIf="formErrors.appName" class="invalid-feedback">{{formErrors.appName}}</div>
+                                </div>
+
+                                <!--
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Role </label>
+                                <input type="text" formControlName="role" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.role">
+                                <div *ngIf="formErrors.role" class="invalid-feedback">{{formErrors.role}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">App Name </label>
+                                <input type="text" formControlName="appName" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.appName">
+                                <div *ngIf="formErrors.appName" class="invalid-feedback">{{formErrors.appName}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Platform </label>
+                                <input type="text" formControlName="platform" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.platform">
+                                <div *ngIf="formErrors.platform" class="invalid-feedback">{{formErrors.platform}}</div>
+                                </div> 
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Email </label>
+                                <input type="text" formControlName="email" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.email">
+                                <div *ngIf="formErrors.email" class="invalid-feedback">{{formErrors.email}}</div>
+                                </div>
+                                
+                                -->
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Organization Id*  </label>
+                                <input type="text" formControlName="organizationId" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.organizationId">
+                                <div *ngIf="formErrors.organizationId" class="invalid-feedback">{{formErrors.organizationId}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Grade Id* </label>
+                                <input type="text" formControlName="gradeId" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.gradeId">
+                                <div *ngIf="formErrors.gradeId" class="invalid-feedback">{{formErrors.gradeId}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Branch Id* </label>
+                                <input type="text" formControlName="branchId" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.branchId">
+                                <div *ngIf="formErrors.branchId" class="invalid-feedback">{{formErrors.branchId}}</div>
+                                </div>
+
+                                <!-- <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Designation* </label>
+                                <input type="text" formControlName="designation" class="form-control"
+                                (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.designation">
+                                <div *ngIf="formErrors.designation" class="invalid-feedback">{{formErrors.designation}}</div>
+                                </div> -->
+
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="float-right" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetForm()">Reset</button>
+                                <button type="submit" class="btn btn-success btn-sm" [disabled]="!teacherForm.valid">Save</button>
+                                </div>
+                                </div>     
+                        </div>
+                        <!-- <pre>{{organizationForm.value|json}}</pre> -->
+                </form>
+        </div>
+</div>

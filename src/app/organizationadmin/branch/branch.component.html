@@ -1,0 +1,44 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated bounceInRight">
+                <div class="card card-hover tableshadow mt-3">
+                        <div class="card-body tableshadow">
+                            <div class="row">
+                                <div class="col-md-12">
+                                        <h5 class="text-secondary"> <span style="font-family: fantasy">Branches</span> 
+                                                <button type="button" class="btn btn-info btn-sm float-right" [routerLink]="['/organization/createbranch']">Create Branch</button></h5>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                        <div class="container-fluid">
+                                <div class="table-responsive">
+                                <table class="table text-center table-hover table-bordered" datatable [dtTrigger]="dtTrigger">
+                                <thead>
+                                <tr style="font-family: fantasy" class="text-secondary">
+                                        <th>S.No</th>
+                                        <th>Branch Name</th> 
+                                        <th>Branch Code</th>
+                                        <!-- <th>Branch Address</th> -->
+                                        <th>Update Branch</th>
+                                </tr>
+                                </thead>
+                                        <tbody>      
+                                        <ng-container *ngIf="branch">
+                                        <tr *ngFor="let item of branch.result;let i = index" style="font-family: sans-serif">
+                                        <th scope="row">{{i+1}}</th>
+                                        <td>{{item.name}}</td>
+                                        <td>{{item.branchCode}}</td>
+                                        <!-- <td>{{item.address}}</td> -->
+                                        <!-- <td><button type="button" class="btn btn-outline-success" (click)="updatebranch(item._id)">Update
+                                                Branch</button></td> -->
+                                        <td><button style="background: #35D9B8" class="btn text-white btn-sm" (click)="updatebranch(item._id)"><i class="fas fa-edit"></i></button></td>
+                                        </tr>
+                                        </ng-container>
+                                </tbody>
+                                </table>
+                                </div>
+                        </div>
+                                </div>
+                    </div>
+    </div>
+</div>

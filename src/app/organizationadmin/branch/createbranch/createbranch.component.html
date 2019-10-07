@@ -1,0 +1,345 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated swing">
+                <form [formGroup]="branchForm" (ngSubmit)="onSubmit()">
+                        <div class="card card-hover tableshadow mt-3">
+                                <div class="card-body tableshadow"
+                                        style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                        <h5 class="text-white"> <span
+                                                                        style="font-family: fantasy">Create Branch
+                                                                        Details</span>
+                                                                <button type="button"
+                                                                        class="btn text-white btn-sm float-right"
+                                                                        [routerLink]="['/organization/branch']"><i
+                                                                                class="fas fa-arrow-left fa-lg"></i></button>
+                                                        </h5>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="border-top">
+                                        <div class="card-body">
+
+                                                <div class="row">
+                                                        <div class="col-md-6">
+                                                                <!-- <input type="hidden" formControlName="_id"> -->
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Branch Type <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <select class="form-control" name="branchType"
+                                                                                formControlName="branchType"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.branchType">
+                                                                                <option value="COCO">COCO</option>
+                                                                                <option value="FRANCHISEE">FRANCHISEE
+                                                                                </option>
+                                                                                <option value="THIRDPARTY">THIRDPARTY
+                                                                                </option>
+                                                                        </select>
+                                                                        <div *ngIf="formErrors.branchType"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.branchType}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Admin Mobile Phone
+                                                                                Number
+                                                                        </label>
+                                                                        <div class="input-group mb-3">
+                                                                                <div class="input-group-prepend">
+                                                                                        <span class="input-group-text">+
+                                                                                                91</span>
+                                                                                </div>
+                                                                                <input type="text" class="form-control"
+                                                                                        formControlName="adminPhoneNumber"
+                                                                                        (blur)="logValidationMessages()"
+                                                                                        [class.is-invalid]="formErrors.adminPhoneNumber">
+                                                                                <div *ngIf="formErrors.branchType"
+                                                                                        class="invalid-feedback">
+                                                                                        {{formErrors.adminPhoneNumber}}
+                                                                                </div>
+                                                                        </div>
+
+                                                                </div>
+
+
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Branch Name <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="name"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.name">
+                                                                        <div *ngIf="formErrors.name"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.name}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Admin Email <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="adminEmail"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.adminEmail">
+                                                                        <div *ngIf="formErrors.adminEmail"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.adminEmail}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Branch Code
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="branchCode"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.branchCode">
+                                                                        <div *ngIf="formErrors.branchCode"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.branchCode}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Admin Password
+                                                                                <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="password"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.password">
+                                                                        <div *ngIf="formErrors.password"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.password}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Website </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="website"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.website">
+                                                                        <div *ngIf="formErrors.website"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.website}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Area </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="area"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.area">
+                                                                        <div *ngIf="formErrors.area"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.area}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Contact Phone
+                                                                                Number
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="contactPhoneNumber"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.contactPhoneNumber">
+                                                                        <div *ngIf="formErrors.contactPhoneNumber"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.contactPhoneNumber}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Sub Area </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="subArea"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.subArea">
+                                                                        <div *ngIf="formErrors.subArea"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.subArea}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Contact Landline
+                                                                                Number
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="contactLandLine"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.contactLandLine">
+                                                                        <div *ngIf="formErrors.contactLandLine"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.contactLandLine}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">City </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="city"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.city">
+                                                                        <div *ngIf="formErrors.city"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.city}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Contact Email
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="contactEmail"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.contactEmail">
+                                                                        <div *ngIf="formErrors.contactEmail"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.contactEmail}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">State </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="state"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.state">
+                                                                        <div *ngIf="formErrors.state"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.state}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Admin Name <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="adminName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.adminName">
+                                                                        <div *ngIf="formErrors.adminName"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.adminName}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Country </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="country"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.country">
+                                                                        <div *ngIf="formErrors.country"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.country}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">PIN Code </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="pinCode"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.pinCode">
+                                                                        <div *ngIf="formErrors.pinCode"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.pinCode}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Academic Year
+                                                                                Start <span class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="academicYearStart"
+                                                                                bsDatepicker
+                                                                                [bsConfig]="datePickerConfig"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.academicYearStart">
+                                                                        <div *ngIf="formErrors.academicYearStart"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.academicYearStart}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Academic Year End
+                                                                                <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="academicYearEnd"
+                                                                                bsDatepicker
+                                                                                [bsConfig]="datePickerConfig"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.academicYearEnd">
+                                                                        <div *ngIf="formErrors.academicYearEnd"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.academicYearEnd}}</div>
+                                                                </div>
+                                                        </div>
+
+                                                </div>
+
+
+
+                                        </div>
+                                </div>
+
+                                <div class="border-top">
+                                        <div class="card-body">
+                                                <div class="row">
+                                                        <div class="col-md-6"></div>
+                                                        <div class="col-md-6">
+                                                                <h5 class="card-title"><button type="submit"
+                                                                                class="btn btn-primary btn-sm float-right">Save
+                                                                                Details</button></h5>
+                                                        </div>
+                                                </div>
+
+                                        </div>
+                                </div>
+
+
+                        </div>
+                </form>
+        </div>
+</div>
+
+
+
+<!-- <pre>{{this.branchForm.value |json}}</pre> -->

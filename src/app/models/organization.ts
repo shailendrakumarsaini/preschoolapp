@@ -1,0 +1,17 @@
+export class oraganization {
+    name: string=''
+    organizationCode: string=''
+    area: string=''
+    website: string=''
+    subArea: string=''
+    contactEmail: string=''
+    city: string=''
+    contactPhoneNumber: string=''
+    state: string=''
+    adminName: string=''
+    pinCode: string=''
+    adminPhoneNumber: string=''
+    _id: string=''
+    country:string=''
+    adminEmail:string=''
+}

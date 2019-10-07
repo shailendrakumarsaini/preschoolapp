@@ -1,0 +1,37 @@
+<div class="page-wrapper mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <header class="section-header">
+          <h3>Reports</h3>
+          <span class="section-divider"></span>
+        </header>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-4">
+    <div class="row">
+  
+      <div class="col-sm-6">
+        <h5 class="card-title text-center">Organization</h5>
+        <p class="card-text">
+          <ng-container *ngIf="organizations">
+            <input type="text" name="name" class="form-control text-center" [(ngModel)]="organizations.name"
+            disabled required>
+          </ng-container>
+        </p>
+      </div>
+      <div class="col-sm-6">
+        <h5 class="card-title text-center">Branches</h5>
+        <p class="card-text">
+          <select class="form-control" (change)="changeBranch(branchModel)" [(ngModel)]="branchModel">
+            <option value="" disabled>Select Branch</option>
+            <option [value]="i._id" *ngFor="let i of branches">{{i.name}}</option>
+          </select>
+        </p>
+      </div>
+    </div>
+  </div>
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+</div>
+

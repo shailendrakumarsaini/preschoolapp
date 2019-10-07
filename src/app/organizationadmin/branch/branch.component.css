@@ -1,0 +1,23 @@
+.section-header .section-divider {
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #ffbf0a;
+    background: linear-gradient(0deg, #ffbf0a 0%, #ffbf0a 100%);
+    margin-left: 25px;
+    margin-bottom: 20px;
+}
+
+.tableshadow{
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.tableshadow5:hover{
+    -webkit-box-shadow: 0 0 30px #17A2B8;
+    box-shadow: 0 0 20px #17A2B8;
+}
+/* 
+.tableshadoww:hover{
+    box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+    transition: 0.3s;
+} */

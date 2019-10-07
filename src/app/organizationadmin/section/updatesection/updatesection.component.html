@@ -1,0 +1,42 @@
+<div class="page-wrapper">
+                <div class="container-fluid animated lightSpeedIn">
+                        <form #form="ngForm" (ngSubmit)="onUpdate(form.value)">
+                                <div class="card card-hover tableshadow mt-3">
+                                        <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                        <div class="row">
+                                        <div class="col-md-12">
+                                        <h5 class="text-white"> <span style="font-family: fantasy">Update Section</span> 
+                                        <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/organization/section']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="card-body">
+                                        <div class="row">
+                                        <div class="col-sm-6">
+                                        <div class="form-group">
+                                        <label class="label-input100">Organization </label>
+                                        <ng-container *ngIf="organizations">
+                                        <input type="text" name="name" class="form-control tableshadoww" [(ngModel)]="organizations.name"
+                                        [readonly]="organizations.name" required>
+                                        </ng-container>
+                                        </div>
+                                        </div>
+                                        
+                                        <div class="col-sm-6">
+                                        <div class="form-group">
+                                        <label class="label-input100">Section Name </label>
+                                        <input type="text" name="Section" class="form-control tableshadoww" [(ngModel)]="SectionModel" required>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="card-footer">
+                                        <div class="float-right" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetForm()">Reset</button>
+                                        <button type="submit" class="btn btn-success btn-sm" [disabled]="form.invalid">Update</button>
+                                        </div>
+                                        </div>     
+                                </div>
+                        </form>
+                </div>
+</div>

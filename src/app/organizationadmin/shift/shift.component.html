@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated rotateIn">
+            <div class="card card-hover tableshadow mt-3">
+                <div class="card-body tableshadow">
+                    <div class="row">
+                        <div class="col-md-12">
+                        <h5 class="text-secondary"> <span style="font-family: fantasy">Shifts</span>  
+                        <button type="button" class="btn btn-info btn-sm float-right" [routerLink]="['/organization/createShift']">Create Shift</button></h5>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="card-body"> 
+                    <div class="container-fluid">
+                        <div class="table-responsive">
+                            <table class="table text-center table-hover table-bordered" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                                <thead>
+                                    <tr style="font-family: fantasy" class="text-secondary">
+                                    <th>S.No</th>
+                                    <th>Shift Name</th>
+                                    <th>Days</th>
+                                    <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>      
+                                <tr *ngFor="let item of shifts;let i = index" style="font-family: sans-serif">
+                                    <th scope="row">{{i+1}}</th>
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.days}}</td>
+                                    <td>
+                                        <button style="background: #35D9B8" class="btn text-white btn-sm" (click)="editShift(item)"><i class="fas fa-edit"></i></button>
+                                    </td>
+                                </tr> 
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    

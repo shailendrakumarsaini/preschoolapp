@@ -1,0 +1,41 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated bounceInRight">
+        <div class="card card-hover tableshadow mt-3">
+            <div class="card-body tableshadow">
+                <div class="row">
+                    <div class="col-md-12">
+                    <h5 class="text-secondary"><span style="font-family: fantasy">Parents</span><button type="button" class="btn btn-info float-right btn-sm" [routerLink]="['/branch/createparent']">Create Parent</button> </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                            <table class="table text-center table-hover table-bordered"
+                            datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                               <thead>
+                                   <tr style="font-family: fantasy" class="text-secondary">
+                                   <th>Name</th>
+                                   <th>Contact</th>
+                                   <th>Email</th>
+                                   <th>Action</th>
+                                   </tr>
+                               </thead>
+                               <tbody>       
+                               <tr *ngFor="let item of parentList" style="font-family: sans-serif">
+                                   <td>{{item.firstName}}</td>
+                                   <td>{{item.mobileNumber}}</td>
+                                   <td>{{item.email}}</td>
+                                   <td>
+                                       <button style="background: #35D9B8" class="btn text-white btn-sm" (click)="editTeacher(item)"><i class="fas fa-edit"></i></button>
+                                   </td>
+                               </tr> 
+                               </tbody>
+                           </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

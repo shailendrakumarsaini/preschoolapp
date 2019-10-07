@@ -1,0 +1,411 @@
+<div class="page-wrapper">
+                <div class="container-fluid animated bounceInUp">
+                        <form [formGroup]="parentForm" (ngSubmit)="onSubmit()">
+                                <div class="card card-hover tableshadow mt-3">
+                                        <div class="card-body tableshadow"
+                                                style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                                <div class="row">
+                                                        <div class="col-md-12">
+                                                                <h5 style="font-family: fantasy" class="text-white">Create
+                                                                        Parent <button type="button"
+                                                                                class="btn text-white btn-sm float-right"
+                                                                                [routerLink]="['/branch/parent']"><i
+                                                                                        class="fas fa-arrow-left fa-lg"></i></button>
+                                                                </h5>
+                                                        </div>
+                                                </div>
+                                        </div>
+        
+                                        <!-- <div class="card-body">
+                                                <div class="row">
+                                                        <div formGroupName="parent" class="col-md-6">
+        
+                                                                <div class="col-md-6">
+                                                                        <label class="label-input100">First Name: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="firstName" minlength="5"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.firstName">
+                                                                        <div *ngIf="formErrors.firstName" class="invalid-feedback">
+                                                                                {{formErrors.firstName}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6">
+                                                                        <label class="label-input100">Last Name </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="lastName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.lastName">
+                                                                        <div *ngIf="formErrors.lastName" class="invalid-feedback">
+                                                                                {{formErrors.lastName}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Contact Phone Number</label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="mobileNumber"
+                                                                                (blur)="logValidationMessages()" MaxDigit="10"
+                                                                                OnlyNumberWithLength MinDigit="10"
+                                                                                [class.is-invalid]="formErrors.mobileNumber">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Land Line Number </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="landLineNumber" OnlyNumberWithLength
+                                                                                (blur)="logValidationMessages()" MaxDigit="10"
+                                                                                MinDigit="10"
+                                                                                [class.is-invalid]="formErrors.landLineNumber">
+                                                                        <div *ngIf="formErrors.landLineNumber" class="invalid-feedback">
+                                                                                {{formErrors.landLineNumber}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Contact Email</label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="email"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.email">
+                                                                        <div *ngIf="formErrors.email" class="invalid-feedback">
+                                                                                {{formErrors.email}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Age </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="age" maxlength="2"
+                                                                                OnlyNumberWithLength (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.age">
+                                                                        <div *ngIf="formErrors.age" class="invalid-feedback">
+                                                                                {{formErrors.age}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Spouse First Name </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="spouseFirstName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.spouseFirstName">
+                                                                        <div *ngIf="formErrors.spouseFirstName"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.spouseFirstName}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Spouse Last Name </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="spouseLastName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.spouseLastName">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Spouse Contact Number </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="spousePhoneNo"
+                                                                                OnlyNumberWithLength (blur)="logValidationMessages()"
+                                                                                MaxDigit="10" MinDigit="10"
+                                                                                [class.is-invalid]="formErrors.spousePhoneNo">
+                                                                        <div *ngIf="formErrors.spousePhoneNo"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.spousePhoneNo}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Spouse Contact Email </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="spouseEmailID"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.spouseEmailID">
+                                                                        <div *ngIf="formErrors.spouseEmailID"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.spouseEmailID}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Address </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="address"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.address">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Enrollement Id: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="enrollmentCode"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.enrollmentCode">
+                                                                        <div *ngIf="formErrors.enrollmentCode" class="invalid-feedback">
+                                                                                {{formErrors.enrollmentCode}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div formGroupName="student" class="col-md-6">
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Organisation: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" *ngIf="organizations" [value]="organizations.name" [attr.disabled]="organizations.name" readonly>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Branch: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control" *ngIf="branch" [value]="branch.name" [attr.disabled]="branch.name" readonly>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Student First Name: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="firstName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.firstName">
+                                                                        <div *ngIf="formErrors.firstName"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.firstName}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Student Middle Name </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="middleName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.middleName">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Student Last Name </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="lastName"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.lastName">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Age </label>
+                                                                        <input type="text" class="form-control" formControlName="age"
+                                                                                maxlength="2" OnlyNumberWithLength
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.age">
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Gender: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <select class="form-control" name="branchType"
+                                                                                formControlName="gender"
+                                                                                [class.is-invalid]="formErrors.gender"
+                                                                                (blur)="logValidationMessages()">
+                                                                                <option value="null" disabled>Select Gender</option>
+                                                                                <option value="male">Male</option>
+                                                                                <option value="female">Female</option>
+                                                                        </select>
+                                                                        <div *ngIf="formErrors.gender" class="invalid-feedback">
+                                                                                {{formErrors.gender}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Grade: <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <select class="form-control" formControlName="gradeId"
+                                                                                (blur)="logValidationMessages()" (change)="changeGrade($event)"
+                                                                                [class.is-invalid]="formErrors.gradeId">
+                                                                                <option value="null" disabled>Select Grade</option>
+                                                                                <option [value]="i.gradeId._id" *ngFor="let i of grades">
+                                                                                        {{i.gradeId.name}}</option>
+                                                                        </select>
+                                                                        <div *ngIf="formErrors.gradeId" class="invalid-feedback">
+                                                                                {{formErrors.gradeId}}
+                                                                        </div>
+                                                                </div>
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Section <span
+                                                                                class="text-danger">*</span></label>
+                                                                        <select class="form-control" formControlName="sectionId"
+                                                                                (change)="changeSection($event)"
+                                                                                [class.is-invalid]="formErrors.sectionId"
+                                                                                (blur)="logValidationMessages()">
+                                                                                <option value="null" disabled>Select Section</option>
+                                                                                <option [value]="i.sectionId._id" *ngFor="let i of sectionsList">
+                                                                                        {{i.sectionId.name}}</option>
+                                                                        </select>
+                                                                        <div *ngIf="formErrors.sectionId" class="invalid-feedback">
+                                                                                {{formErrors.sectionId}}
+                                                                        </div>
+                                                                </div>                                                        
+        
+                                                                <div class="col-md-6 mt-2">
+                                                                        <label class="label-input100">Shift <span
+                                                                                class="text-danger">*</span></label>
+                                                                        <select class="form-control"
+                                                                                formControlName="shiftId"
+                                                                                [class.is-invalid]="formErrors.shiftId"
+                                                                                (blur)="logValidationMessages()">
+                                                                                <option value="null" disabled>Select Shift</option>
+                                                                                <option [value]="i._id" *ngFor="let i of shiftList">
+                                                                                        {{i.name}}</option>
+                                                                        </select>
+                                                                        <div *ngIf="formErrors.shiftId" class="invalid-feedback">
+                                                                                {{formErrors.shiftId}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>          
+        
+        
+                                                </div>
+                                        </div> -->
+        
+                                        <div class="card-body">
+                                                <div class="row">
+                                                        <div class="col-md-6">
+        
+                                                                <label class="label-input100">First Name: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                        formControlName="firstName" minlength="3"
+                                                                        (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.firstName">
+                                                                <div *ngIf="formErrors.firstName" class="invalid-feedback">
+                                                                        {{formErrors.firstName}}
+                                                                </div>
+                                                                <label class="label-input100 mt-2">Last Name:</label>
+                                                                <input type="text" class="form-control"
+                                                                        formControlName="lastName"
+                                                                        (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.lastName">
+                                                                <div *ngIf="formErrors.lastName" class="invalid-feedback">
+                                                                        {{formErrors.lastName}}
+                                                                </div>
+                                                                <label class="label-input100 mt-2">Mobile Number: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                        formControlName="mobileNumber" minlength="10"
+                                                                        maxlength="10" (blur)="logValidationMessages()"
+                                                                        numbersOnly
+                                                                        [class.is-invalid]="formErrors.mobileNumber">
+                                                                <div *ngIf="formErrors.mobileNumber" class="invalid-feedback">
+                                                                        {{formErrors.mobileNumber}}
+                                                                </div>
+                                                                <!-- <label class="label-input100 mt-2">Role: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" formControlName="role"
+                                                                        minlength="5" (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.role">
+                                                                <div *ngIf="formErrors.role" class="invalid-feedback">
+                                                                        {{formErrors.role}}
+                                                                </div>  -->
+                                                                <label class="label-input100 mt-2">Email:</label>
+                                                                <input type="text" class="form-control" formControlName="email"
+                                                                        minlength="5" (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.email">
+                                                                <div *ngIf="formErrors.email" class="invalid-feedback">
+                                                                        {{formErrors.email}}
+                                                                </div>
+                                                                <!-- <label class="label-input100 mt-2">Platform:</label>
+                                                                <input type="text" class="form-control"
+                                                                        formControlName="platform" minlength="5"
+                                                                        (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.platform">
+                                                                <div *ngIf="formErrors.platform" class="invalid-feedback">
+                                                                        {{formErrors.platform}}
+                                                                </div> -->
+                                                                
+                                                                <label class="label-input100 mt-2">Profile Image: <span
+                                                                        class="text-danger">*</span></label>
+                                                        <input type="file" class="form-control"
+                                                                formControlName="profileImage"
+                                                                (blur)="logValidationMessages()"
+                                                                [class.is-invalid]="formErrors.profileImage">
+                                                        <div *ngIf="formErrors.profileImage" class="invalid-feedback">
+                                                                {{formErrors.profileImage}}
+                                                        </div>
+        
+        
+        
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                                        <label class="label-input100">Kid Name: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control"
+                                                                        formControlName="kidName" minlength="5"
+                                                                        (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.kidName">
+                                                                <div *ngIf="formErrors.kidName" class="invalid-feedback">
+                                                                        {{formErrors.kidName}}
+                                                                </div>
+                                                                <label class="label-input100 mt-2">Kid Age: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" formControlName="kidAge"
+                                                                        maxlength="2" (blur)="logValidationMessages()"
+                                                                        numbersOnly
+                                                                        [class.is-invalid]="formErrors.kidAge">
+                                                                <div *ngIf="formErrors.kidAge" class="invalid-feedback">
+                                                                        {{formErrors.kidAge}}
+                                                                </div>
+                                                                <label class="label-input100 mt-2">Kid Gender: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <select class="form-control" name="branchType"
+                                                                        formControlName="kidGender"
+                                                                        [class.is-invalid]="formErrors.kidGender"
+                                                                        (blur)="logValidationMessages()">
+                                                                        <option value="null" disabled>Select Gender</option>
+                                                                        <option value="male">Male</option>
+                                                                        <option value="female">Female</option>
+                                                                </select>
+                                                                <div *ngIf="formErrors.kidGender" class="invalid-feedback">
+                                                                        {{formErrors.kidGender}}
+                                                                </div>
+
+                                                                <!-- <label class="label-input100 mt-2">Organization Id: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <input type="text" class="form-control" *ngIf="organizations"
+                                                                        [value]="organizations.name"
+                                                                        [attr.disabled]="organizations.name" readonly>
+                                                                <div *ngIf="formErrors.organizationId" class="invalid-feedback">
+                                                                        {{formErrors.organizationId}}
+                                                                </div>
+
+                                                                <label class="label-input100 mt-2">Grade: <span
+                                                                                class="text-danger">*</span></label>
+                                                                <select class="form-control"
+                                                                        formControlName="gradeId"
+                                                                        [class.is-invalid]="formErrors.gradeId"
+                                                                        (blur)="logValidationMessages()">
+                                                                        <option value="null" disabled>Select Grade</option>
+                                                                        <option [value]="i._id" *ngFor="let i of grades">{{i.name}}</option>
+                                                                </select>
+                                                                <div *ngIf="formErrors.gradeId" class="invalid-feedback">
+                                                                        {{formErrors.gradeId}}
+                                                                </div> -->
+                                                                
+                                                        </div>
+                                                </div>
+                                        </div>
+                                        <div class="card-footer">
+                                                <div class="float-right" role="group" aria-label="Basic example">
+                                                        <button type="submit"
+                                                                class="btn btn-primary btn-sm btn-block">Create</button>
+                                                </div>
+                                        </div>
+                                </div>
+                                <pre>{{parentForm.value |json}}</pre>
+        
+        
+        
+                        </form>
+                </div>
+        </div>

@@ -1,0 +1,83 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated fadeInUp">
+                <form [formGroup]="publisherForm" (ngSubmit)="createPublisher()">
+                        <div class="card card-hover tableshadow mt-3">
+                                <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                <div class="row">
+                                <div class="col-md-12">
+                                <h5 style="font-family: fantasy" class="text-white">Create Publisher
+                                <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/admin/publisher']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                </div>
+                                </div>
+                                </div>
+                                <div class="card-body">
+                                <div class="row">
+                                <div class="col-sm-6">
+                                <label class="label-input100">Publisher Name </label>
+                                <input type="text" class="form-control" formControlName="name" (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.name">
+                                <div *ngIf="formErrors.name" class="invalid-feedback">{{formErrors.name}}</div>
+
+                                <!-- <input type="text" formControlName="name" class="form-control" placeholder="Enter organization name"
+                                    (blur)="logValidationMessages()" [class.is-invalid]="formErrors.name">
+                                <div *ngIf="formErrors.name" class="invalid-feedback">{{formErrors.name}}</div> -->
+                                </div>
+                                
+                                <div class="col-sm-6">
+                                <label class="label-input100">Description </label>
+                                <input type="text" class="form-control" formControlName="description">
+                                </div>
+
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Email </label>
+                                <input type="text" class="form-control" formControlName="email" (blur)="logValidationMessages()"
+                                [class.is-invalid]="formErrors.email">
+                                <div *ngIf="formErrors.email" class="invalid-feedback">{{formErrors.email}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <label class="label-input100">Contact Number </label>
+                                <input type="text" class="form-control" formControlName="mobileNumber"
+                                (blur)="logValidationMessages()" [class.is-invalid]="formErrors.mobileNumber">
+                                <div *ngIf="formErrors.mobileNumber" class="invalid-feedback">{{formErrors.mobileNumber}}</div>
+                                </div>
+
+                                <div class="col-sm-6 mt-2">
+                                <div *ngIf="publisher._id=='' || publisher._id==null">
+                                <label class="label-input100">Organization </label>
+                                <select class="form-control" formControlName="organizationId">
+                                <option value=""></option>
+                                <option *ngFor="let item of orgarnizationList" value="{{item._id}}">{{item.name}}</option>
+                                </select>
+                                </div>
+                                </div>
+
+
+                                </div>
+                                </div>
+                                <div class="card-footer">
+                                <div class="float-right" role="group" aria-label="Basic example">
+                                <button type="button" class="btn btn-info btn-sm mr-1" (click)="reset()">Reset</button>
+                                <button type="submit" class="btn btn-success btn-sm" [disabled]="!publisherForm.valid">Create</button>
+                                </div>
+                                </div>     
+                        </div>
+                </form>
+        </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

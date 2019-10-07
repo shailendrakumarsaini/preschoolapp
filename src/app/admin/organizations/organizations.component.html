@@ -1,0 +1,84 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated bounceInLeft">
+                    <div class="card card-hover tableshadow mt-3">
+                            <div class="card-body tableshadow">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                            <h5 class="text-secondary"> <span style="font-family: fantasy">Organizations</span> 
+                                                <button type="button" class="btn btn-info btn-sm float-right" (click)="createOrganization()">Create Organization</button></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            <div class="container-fluid">
+                                    <div class="table-responsive">
+                                    <table class="table text-center table-hover table-bordered" datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger">
+                                    <thead>
+                                    <tr style="font-family: fantasy" class="text-secondary">
+                                            <th>S.No</th>
+                                            <th>Organization Name</th>
+                                            <th>Website</th>
+                                            <!-- <th>Branch Address</th> -->
+                                            <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                            <tbody>      
+                                            
+                                            <tr *ngFor="let item of oraganization;let i = index" style="font-family: sans-serif">
+                                            <th scope="row">{{i+1}}</th>
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.website}}</td>
+                                            <!-- <td>{{item.address}}</td> -->
+                                            <!-- <td><button type="button" class="btn btn-outline-success" (click)="updatebranch(item._id)">Update
+                                                    Branch</button></td> -->
+                                            <td><button style="background: #35D9B8" class="btn text-white btn-sm" (click)="editOrganization(item._id)"><i class="fas fa-edit"></i></button></td>
+                                            </tr>
+                                         
+                                    </tbody>
+                                    </table>
+                                    </div>
+                            </div>
+                                    </div>
+                        </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="page-wrapper mt-5">
+    <div class="container-fluid">
+            <button (click)="createOrganization()"> Create Organization</button>
+
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="row-border hover">
+                <thead>
+                    <tr>
+                        <th>Organization Name</th>
+                        <th>Website</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of oraganization">
+                        <td>{{item.name}}</td>
+                        <td>{{item.website}}</td>
+                        <td>
+                            <button class="btn btn-info btn-sm" (click)="editOrganization(item._id)">
+                                Edit
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </div>
+   
+</div> -->
+

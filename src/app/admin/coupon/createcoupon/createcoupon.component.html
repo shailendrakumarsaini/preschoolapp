@@ -1,0 +1,243 @@
+<div class="page-wrapper">
+                <div class="container-fluid">
+                                <form [formGroup]="couponForm" (ngSubmit)="onSubmit()">
+                        <div class="animated bounceInLeft">
+                        <div class="card card-hover tableshadow mt-3">
+                                        <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)"> 
+                                        <div class="row">
+                                        <div class="col-md-12">
+                                        <h5 style="font-family: fantasy" class="text-white">Create Coupon
+                                        <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/admin/coupon']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                        </div>
+                                        </div>
+                                        </div>
+                                        <div class="card-body">
+                                        <div class="row">
+                        <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label class="label-input100">Coupon Code </label>
+                                                <span class="text-danger">*</span>
+                                                <input type="text" class="form-control"
+                                                        formControlName="couponCode"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.couponCode">
+                                                <div *ngIf="formErrors.couponCode"
+                                                        class="invalid-feedback">
+                                                        {{formErrors.couponCode}}
+                                                </div>
+                                        </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label class="label-input100">Academic Year Start <span
+                                                                class="text-danger">*</span>
+                                                </label>
+                                                <input type="text" class="form-control"
+                                                        formControlName="startDate" bsDatepicker
+                                                        [bsConfig]="datePickerConfig"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.startDate">
+                                                <div *ngIf="formErrors.startDate"
+                                                        class="invalid-feedback">
+                                                        {{formErrors.startDate}}</div>
+                                        </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                                <label class="label-input100">Academic Year End <span
+                                                                class="text-danger">*</span></label>
+                                                <input type="text" class="form-control"
+                                                        formControlName="endDate" bsDatepicker
+                                                        [bsConfig]="datePickerConfig"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.endDate">
+                                                <div *ngIf="formErrors.endDate"
+                                                        class="invalid-feedback">
+                                                        {{formErrors.endDate}}</div>
+                                        </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                        <label class="label-input100">Type <span
+                                                        class="text-danger">*</span></label>
+                                        <select class="form-control" name="type" formControlName="type"
+                                                (blur)="logValidationMessages()"
+                                                [class.is-invalid]="formErrors.type">
+                                                <option value="" disabled>Select Type</option>
+                                                <option value="regular">Regular</option>
+                                                <option value="promotional">Promotional</option>
+                                                <option value="discount">Discount</option>
+                                        </select>
+                                        <div *ngIf="formErrors.type" class="invalid-feedback">
+                                                {{formErrors.type}}</div>
+                                </div>
+
+                                <div class="col-md-6" *ngIf="showPromotionalInputBox">
+                                        <div class="form-group">
+                                                <label class="label-input100">Limit <span
+                                                                class="text-danger">*</span></label>
+                                                <input type="text" class="form-control"
+                                                        formControlName="limit"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.limit"
+                                                        placeholder="Enter max number of times coupon can be used">
+                                                <div *ngIf="formErrors.limit" class="invalid-feedback">
+                                                        {{formErrors.limit}}</div>
+                                        </div>
+                                </div>
+
+                                <div class="col-md-6" *ngIf="showDiscountInputBox">
+                                        <label class="label-input100">Discount Type <span
+                                                        class="text-danger">*</span></label>
+                                        <select class="form-control" name="type"
+                                                formControlName="discountType"
+                                                (blur)="logValidationMessages()"
+                                                [class.is-invalid]="formErrors.discountType">
+                                                <option value="" disabled>Select Discount Type</option>
+                                                <option value="amount">Amount</option>
+                                                <option value="percentage">Percentage</option>
+                                        </select>
+                                        <div *ngIf="formErrors.discountType" class="invalid-feedback">
+                                                {{formErrors.discountType}}</div>
+                                </div>
+
+
+                                <div class="col-md-6" *ngIf="couponForm.get('discountType')">
+                                        <div class="form-group"
+                                                *ngIf="couponForm.get('discountType').value == 'amount'">
+                                                <label class="label-input100">Discount Amount <span
+                                                                class="text-danger">*</span></label>
+                                                <input type="text" class="form-control"
+                                                        formControlName="discount"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.discount"
+                                                        placeholder="Enter discount amount">
+                                                <div *ngIf="formErrors.discount"
+                                                        class="invalid-feedback">
+                                                        {{formErrors.discount}}</div>
+                                        </div>
+                                        <div class="form-group"
+                                                *ngIf="couponForm.get('discountType').value == 'percentage'">
+                                                <label class="label-input100">Discount Percentage <span
+                                                                class="text-danger">*</span></label>
+                                                <input type="text" class="form-control"
+                                                        formControlName="discount"
+                                                        (blur)="logValidationMessages()"
+                                                        [class.is-invalid]="formErrors.discount"
+                                                        placeholder="Enter discount in percentage">
+                                                <div *ngIf="formErrors.discount"
+                                                        class="invalid-feedback">
+                                                        {{formErrors.discount}}</div>
+                                        </div>
+                                </div>
+        
+        
+                                        </div>
+                                        </div>
+                                        <div class="card-footer">
+                                        <div class="float-right" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetForm()">Reset</button>
+                                        <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                        </div>
+                                        </div>     
+                                </div>   
+                        </div>
+                                
+                        </form>
+
+
+                        <div class="animated bounceInRight">
+                        <form [formGroup]="batchCouponForm" (ngSubmit)="batchCouponFormSubmit()">
+                                        <div class="card card-hover tableshadow mt-3">
+                                                <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                                                <div class="row">
+                                                <div class="col-md-12">
+                                                <h5 style="font-family: fantasy" class="text-white">Batch Coupon Upload
+                                                <button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/admin/coupon']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>     
+                                                </div>
+                                                </div>
+                                                </div>
+                                                <div class="card-body">
+                                                <div class="row">
+                
+                                                        <!-- <div class="col-md-6">
+                                                        <div class="form-group">
+                                                                <label class="label-input100">Coupon Code </label>
+                                                                <input type="text" class="form-control" formArrayName="couponCode"
+                                                                        (blur)="logValidationMessages()"
+                                                                        [class.is-invalid]="formErrors.couponCode">
+                                                                <div *ngIf="formErrors.couponCode" class="invalid-feedback">
+                                                                        {{formErrors.couponCode}}
+                                                                </div>
+                                                        </div>
+                                                </div> -->
+                
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Coupons File </label>
+                                                                        <input type="file" #csvRef
+                                                                                (change)="onFileSelect($event.target)"
+                                                                                formArrayName="coupons_data" accept=".csv"
+                                                                                class="form-control" name="myfile"
+                                                                                multiple="false">
+                                                                        <div *ngIf="formErrors.coupons_data"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.coupons_data}}
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                
+                                                        <div class="col-md-6"> 
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Academic Year Start <span
+                                                                                        class="text-danger">*</span>
+                                                                        </label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="startDate" bsDatepicker                                                                              
+                                                                                [bsConfig]="datePickerConfig"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.startDate">
+                                                                        <div *ngIf="formErrors.startDate"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.startDate}}</div>
+                                                                </div>
+                                                        </div>
+                
+                                                        <div class="col-md-6">
+                                                                <div class="form-group">
+                                                                        <label class="label-input100">Academic Year End <span
+                                                                                        class="text-danger">*</span></label>
+                                                                        <input type="text" class="form-control"
+                                                                                formControlName="endDate" bsDatepicker                         
+                                                                                [bsConfig]="datePickerConfig"
+                                                                                (blur)="logValidationMessages()"
+                                                                                [class.is-invalid]="formErrors.endDate">
+                                                                        <div *ngIf="formErrors.endDate"
+                                                                                class="invalid-feedback">
+                                                                                {{formErrors.endDate}}</div>
+                                                                </div>
+                                                        </div>
+                
+                
+                                                </div>
+                                                </div>
+                                                <div class="card-footer">
+                                                <div class="float-right" role="group" aria-label="Basic example">
+                                                <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetBatchForm()">Reset</button>
+                                                <button type="submit" class="btn btn-success btn-sm">Save</button>
+                                                </div>
+                                                </div>     
+                                        </div>
+                                </form>
+                        </div>
+                        
+                </div>
+
+
+
+        </div>
+
+
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

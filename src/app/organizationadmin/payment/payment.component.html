@@ -1,0 +1,155 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated bounceInLeft">
+        <div class="card card-hover tableshadow mt-3">
+            <div class="card-body tableshadow">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h5 style="font-family: sans-serif">Payments Details All Grades</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <ng-container *ngIf="paymentParse">
+                            <input type="text" name="name" class="form-control text-center"
+                                [(ngModel)]="paymentParse.branchName" [readonly]="name"
+                                [attr.disabled]="paymentParse.branchName">
+                        </ng-container>
+                    </div>  
+                    <div class="col-md-4">
+                        <h5 class="card-title"><button type="button" class="btn btn-danger btn-sm float-right"
+                                [routerLink]="['/organization/dashboard']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <table class="table text-center table-hover table-bordered" datatable [dtTrigger]="dtTrigger">
+                            <thead>
+                                <tr style="font-family: fantasy">
+                                    <!-- <th>Branch Name</th> -->
+                                    <th>Grade Name</th>
+                                    <th>Total Kids</th>
+                                    <th>Paid</th>
+                                    <th>Unpaid</th>
+                                    <th>Paid(%)</th>
+                                    <th>Unpaid(%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of paymentData" style="font-family: sans-serif">
+                                    <!-- <td>{{paymentParse.branchName}}</td> -->
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.total_students}}</td>
+                                    <td>{{item.paid}}</td>
+                                    <td>{{item.unpaid}}</td>
+                                    <td style="width:17%">
+                                        <div class="row">
+                                            <div class="col-md-8 mt-1">
+                                                <div class="progress" *ngIf="item.paidPercent > 100">
+                                                    <div [style.width]="item.paidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped" role="progressbar"
+                                                        aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.paidPercent <= 100 && item.paidPercent >= 85">
+                                                    <div [style.width]="item.paidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-success"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.paidPercent <= 85 && item.paidPercent >= 60">
+                                                    <div [style.width]="item.paidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-info"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.paidPercent <= 59 && item.paidPercent > 0">
+                                                    <div [style.width]="item.paidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress" *ngIf="(item.paidPercent <= 0)">
+                                                    <div [style.width]="'0'+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="(item.paidPercent == null) && !(item.paidPercent <= 0)">
+                                                    <div [style.width]="'0'+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <span>{{item.paidPercent == null ? 0 :item.paidPercent }}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td style="width:17%">
+                                        <div class="row">
+                                            <div class="col-md-8 mt-1">
+                                                <div class="progress" *ngIf="item.unPaidPercent > 100">
+                                                    <div [style.width]="item.unPaidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped" role="progressbar"
+                                                        aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                                    </div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.unPaidPercent <= 100 && item.unPaidPercent >= 85">
+                                                    <div [style.width]="item.unPaidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-success"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.unPaidPercent <= 85 && item.unPaidPercent >= 60">
+                                                    <div [style.width]="item.unPaidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-info"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="item.unPaidPercent <= 59 && item.unPaidPercent > 0">
+                                                    <div [style.width]="item.unPaidPercent+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress" *ngIf="(item.unPaidPercent <= 0)">
+                                                    <div [style.width]="'0'+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                                <div class="progress"
+                                                    *ngIf="(item.unPaidPercent == null) && !(item.unPaidPercent <= 0)">
+                                                    <div [style.width]="'0'+'%'"
+                                                        class="progress-bar progress-bar-striped bg-danger"
+                                                        role="progressbar" aria-valuenow="10" aria-valuemin="0"
+                                                        aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="d-flex no-block align-items-center">
+                                                    <span>{{item.unPaidPercent == null ? 0 :item.unPaidPercent }}%</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

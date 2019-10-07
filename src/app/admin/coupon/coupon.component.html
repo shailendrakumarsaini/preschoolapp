@@ -1,0 +1,60 @@
+<div class="page-wrapper">
+        <div class="container-fluid animated zoomInUp">
+                    <div class="card card-hover tableshadow mt-3">
+                            <div class="card-body tableshadow">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                            <h5 class="text-secondary"> <span style="font-family: fantasy">Coupons</span> 
+                                            <button type="button" class="btn btn-info btn-sm float-right" [routerLink]="['/admin/createcoupon']">Create Coupon</button></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4">
+                                    <select class="form-control" [(ngModel)]="type" (change)="filterCoupons(type)">
+                                    <option value="" disabled>Select Coupon Type</option>
+                                    <option [value]="coupontype" *ngFor="let coupontype of couponTypes">{{coupontype}}</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
+                                    <div class="table-responsive">
+                                            <table class="table text-center table-hover table-bordered" datatable [dtTrigger]="dtTrigger">
+                                                    <thead *ngIf="coupons">
+                                                        <tr style="font-family: fantasy" class="text-secondary">
+                                                            <th>Coupon Code</th>
+                                                            <th>Type</th>
+                                                            <th>Used</th>
+                                                            <th>Start Date</th>
+                                                            <th>End Date</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor="let item of coupons">
+                                                            <td>{{item.couponCode}}</td>
+                                                            <td>{{item.type}}</td>
+                                                            <td>{{item.isUsed}}</td>
+                                                            <td>{{item.startDate | date:'dd/MM/yyyy'}}</td>
+                                                            <td>{{item.endDate | date:'dd/MM/yyyy'}}</td>
+                                                            <td>
+                                                                <button class="btn btn-info btn-sm" (click)="editCoupon(item)">
+                                                                    Edit
+                                                                </button>&nbsp;
+                                                                <button class="btn btn-danger btn-sm" (click)="deleteCoupon(item._id)">
+                                                                    Delete
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                    </div>
+                            </div>
+                                    </div>
+                        </div>
+        </div>
+    </div>
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>

@@ -1,0 +1,18 @@
+.section-header .section-divider {
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: #ffbf0a;
+    background: linear-gradient(0deg, #ffbf0a 0%, #ffbf0a 100%);
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.tableshadow{
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.tableshadoww:hover{
+    box-shadow:  0 0 10px 5px rgba(0,0,0,0.6);
+    transition: 0.3s;
+}

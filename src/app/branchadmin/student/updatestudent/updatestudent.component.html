@@ -1,0 +1,114 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated zoomInDown">
+        <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+            <div class="card card-hover tableshadow mt-3">
+                <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="text-white"> <span style="font-family: fantasy">Update Student Details</span>  <button type="button" class="btn text-white btn-sm float-right"
+                                [routerLink]="['/branch/student']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-top">
+                    <div class="card-body"> 
+                        <div class="row">
+                                <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-input100">First Name: <span class="text-danger">*</span></label>
+                                            <input type="text" class="form-control" formControlName="firstName"
+                                                (blur)="logValidationMessages()" [class.is-invalid]="formErrors.firstName">
+                                            <div *ngIf="formErrors.firstName" class="invalid-feedback">{{formErrors.firstName}}
+                                            </div>
+                                            <div *ngIf="formErrors.firstName && formErrors.firstName"
+                                                class="invalid-feedback">Please Enter</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-input100">Middle Name</label>
+                                            <input type="text" class="form-control" formControlName="middleName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-input100">Last Name</label>
+                                            <input type="text" class="form-control" formControlName="lastName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-input100">Age</label>
+                                            <input type="text" class="form-control" formControlName="age">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input100">Gender <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="branchType" formControlName="gender"
+                                            [class.is-invalid]="formErrors.gender" (blur)="logValidationMessages()">
+                                            <option value="" disabled>Select Gender</option>
+                                            <option value="male">Male</option>
+                                            <option value="female">Female</option>
+                                        </select>
+                                        <div *ngIf="formErrors.gender" class="invalid-feedback">{{formErrors.gender}}</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-input100">Parent Full Name</label>
+                                            <input type="text" class="form-control" formControlName="parentFullName"
+                                                [attr.disabled]="true">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input100">Grade <span class="text-danger">*</span></label>
+                                        <select class="form-control" name="branchType" formControlName="grade"
+                                            (blur)="logValidationMessages()" [class.is-invalid]="formErrors.grade">>
+                                            <option value="" disabled>Select grade</option>
+                                            <option [value]="i.gradeId.name" *ngFor="let i of grades">{{i.gradeId.name}}</option>
+                                        </select>
+                                        <div *ngIf="formErrors.grade" class="invalid-feedback">{{formErrors.grade}}</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input100">Section</label>
+                                        <select class="form-control" formControlName="section" (blur)="logValidationMessages()"
+                                            [class.is-invalid]="formErrors.section" [attr.disabled]="true">
+                                            <option value="" disabled>Select section</option>
+                                            <option [value]="user.student.sectionId._id" *ngIf="user">
+                                                {{user.student.sectionId.name}}</option>
+                                        </select>
+                                        <div *ngIf="formErrors.section" class="invalid-feedback">{{formErrors.section}}</div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="label-input100">Shift</label>
+                                        <select class="form-control" formControlName="shift" (blur)="logValidationMessages()"
+                                            [class.is-invalid]="formErrors.shift" [attr.disabled]="true">
+                                            <option value="" disabled>Select shift</option>
+                                            <option [value]="user.student.shiftId._id" *ngIf="user">{{user.student.shiftId.name}}
+                                            </option>
+                                        </select>
+                                        <div *ngIf="formErrors.shift" class="invalid-feedback">{{formErrors.shift}}</div>
+                                    </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-top">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6"></div>
+                            <div class="col-md-6">
+                                <h5 class="card-title"><button type="submit"
+                                        class="btn btn-primary btn-sm float-right">Save Details</button></h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </form>
+
+        <!-- <pre>{{studentForm.value |json}}</pre> -->
+    </div>
+</div>

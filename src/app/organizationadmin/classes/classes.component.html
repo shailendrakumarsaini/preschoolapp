@@ -1,0 +1,116 @@
+<div class="page-wrapper">
+    <div class="container-fluid">
+
+        <form [formGroup]="classForm" (submit)="onSubmit()">
+            <!-- <div class="form-group">
+                <label class="label-input100">Organization <span class="text-danger">*</span></label>
+                <ng-container *ngIf="organizations">
+                    <input type="text" name="name" class="form-control text-center" [value]="organizations.name"
+                        [readonly]="organizations.name" required>
+                </ng-container>
+            </div> -->
+
+            <div class="card card-hover tableshadow mt-3">
+                <div class="card-body tableshadow"
+                    style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="text-white"> <span style="font-family: fantasy">Classes</span></h5>
+                        </div>
+                        <div class="col-md-3"></div>
+                        <div class="col-md-3">
+                            <ng-container *ngIf="organizations">
+                                <input type="text" name="name" class="form-control text-center"
+                                    [value]="organizations.name" [readonly]="organizations.name" required>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-body">
+                    <div class="row">
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="label-input100">Branch <span class="text-danger">*</span></label>
+                                <select class="form-control" formControlName="branchId">
+                                    <option value="null">select Branch</option>
+                                    <option [value]="i._id" *ngFor="let i of branches">{{i.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label class="label-input100">Grade <span class="text-danger">*</span></label>
+                                <select class="form-control" formControlName="gradeId">
+                                    <option value="null">select Grade</option>
+                                    <option [value]="i._id" *ngFor="let i of grades">{{i.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- <div class="row">
+                        <div class="col-md-6"></div>
+                        <div class="col-md-6"><button class="btn btn-sm text-secondary float-right"
+                                [disabled]="classForm.get('sectionDetails').invalid" (click)="addGroup()"> <i
+                                    class="fas fa-plus-square fa-2x"></i></button></div>
+                    </div>
+
+                    <div formArrayName="sectionDetails"
+                        *ngFor="let i of classForm.get('sectionDetails').controls; let groupIndex = index">
+                        <div [formGroupName]="groupIndex">
+                            <div class="row">
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="label-input100">Section <span class="text-danger">*</span></label>
+                                        <select class="form-control" formControlName="sectionId">
+                                            <option value="null">Select Section</option>
+                                            <option [value]="i._id" *ngFor="let i of sections">{{i.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-5">
+                                    <div class="form-group" formArrayName="shiftId"
+                                        *ngFor="let j of i.get('shiftId').controls; let innerArrayIndex = index">
+                                        <label class="label-input100">Shift <span class="text-danger">*</span></label>
+                                        <select class="form-control" [formControlName]="innerArrayIndex">
+                                            <option value="null">Select Section</option>
+                                            <option [value]="i._id" *ngFor="let i of shifts">{{i.name}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="label-input100"></label>
+                                        <button class="btn mt-4" (click)="deleteGroup(groupIndex)"
+                                            [disabled]="classForm.get('sectionDetails').valid == groupIndex"><i
+                                                class="fas fa-trash fa-1x"></i></button>
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div class="card-footer">
+                    <button class="btn btn-success btn-sm float-right" type="submit"> Save</button>
+                </div>
+            </div>
+
+        </form>
+
+        <pre>{{classForm.value |json}}</pre>
+    </div>
+</div>

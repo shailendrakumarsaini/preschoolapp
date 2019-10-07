@@ -1,0 +1,74 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated lightSpeedIn">
+        
+            <div class="card card-hover tableshadow mt-3">
+                <div class="card-body tableshadow" style="background: linear-gradient(to right, #FF5C78 0%, #FF8095 100%)">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h5 style="font-family: fantasy" class="text-white">Create Shift</h5>
+                        </div>
+                        <div class="col-md-4">
+                            <ng-container *ngIf="organizations">
+                                <input type="text" name="name" class="form-control text-center" [(ngModel)]="organizations.name"
+                                    [readonly]="name" [attr.disabled]="organizations.name">
+                            </ng-container>
+                        </div>
+                        <div class="col-md-4">
+                            <h5 class="card-title"><button type="button" class="btn text-white btn-sm float-right" [routerLink]="['/organization/shift']"><i class="fas fa-arrow-left fa-lg"></i></button></h5>
+                        </div>
+                    </div>
+                </div>
+                <form [formGroup]="shiftForm" (ngSubmit)="onSubmit()">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                            <div class="form-group">
+                            <label class="label-input100">Shift Name </label>
+                            <input type="text" formControlName="shift" class="form-control">
+                            </div>
+                            </div>
+
+                            <div class="col-md-6">
+                            <div class="form-group">
+                            <label class="label-input100">Days </label>
+                            <ng-multiselect-dropdown [placeholder]="'Select Days'" [data]="dropdownList"
+                            [settings]="dropdownSettings"
+                            formControlName="days">
+                            </ng-multiselect-dropdown>
+                            </div>
+                            </div> 
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2"></div>
+                            <div class="col-md-2 mt-2">
+                                <label class="label-input100">From Time </label>
+                                <timepicker formControlName="fromTime" [showMeridian]="true" [minuteStep]="1" class="float-center"></timepicker>
+                            </div>
+
+                            <div class="col-md-6 mt-2">
+                                <label class="label-input100">To Time </label>
+                                <timepicker formControlName="toTime" [showMeridian]="true" [minuteStep]="1" class="float-center"></timepicker>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="border-top">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8"></div>
+                                    <div class="col-md-4">
+                                    <div class="float-right" role="group" aria-label="Basic example">
+                                    <button type="button" class="btn btn-info btn-sm mr-1" (click)="resetForm()">Reset</button>
+                                    <button type="submit" class="btn btn-success btn-sm" [disabled]="shiftForm.invalid">{{btnName}}</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </form>
+                <pre>{{shiftForm.value | json}}</pre>
+            </div>
+    </div>
+</div>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>  

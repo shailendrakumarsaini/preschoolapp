@@ -1,0 +1,51 @@
+<div class="page-wrapper">
+    <div class="container-fluid animated bounceInLeft">
+        <div class="card card-hover tableshadow mt-3">
+            <div class="card-body tableshadow">
+                <div class="row">
+                    <div class="col-md-4">
+                    <h5 style="font-family: fantasy" class="text-secondary">Grades</h5>
+                    </div>
+                    <div class="col-md-4">
+                    <p class="card-text">
+                    <ng-container *ngIf="organizations">
+                    <input type="text" name="name" class="form-control text-center" [(ngModel)]="organizations.name"
+                    [readonly]="organizations.name" required>
+                    </ng-container>
+                    </p>
+                    </div>
+                    <div class="col-md-4">
+                    <h5 class="card-title"><button type="button" class="btn btn-info btn-sm float-right" [routerLink]="['/organization/creategrade']">Create Grade</button></h5>
+                    </div>
+                </div> 
+            </div>
+
+            <div class="card-body">
+                <div class="container-fluid">
+                    <div class="table-responsive">
+                        <table class="table text-center table-hover table-bordered" datatable [dtTrigger]="dtTrigger">
+                            <thead>
+                                <tr style="font-family: fantasy" class="text-secondary">
+                                <th>S.No</th>
+                                <th>Grade Name</th>
+                                <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>      
+                            <tr *ngFor="let item of grades;let i = index" style="font-family: sans-serif">
+                                <th scope="row">{{i+1}}</th>
+                                <td>{{item.name}}</td>
+                                <td>
+                                    <button style="background: #35D9B8" class="btn text-white btn-sm" (click)="editClass(item,organizations)"><i class="fas fa-edit"></i></button>&nbsp;
+                                    <button style="background: #FF5C78" class="btn text-white btn-sm" (click)="deleteClass(item)"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr> 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

@@ -1,0 +1,65 @@
+/* .tableshadow1:hover{
+    -webkit-box-shadow: 0 0 30px #27A9E3;
+    box-shadow: 0 0 20px #27A9E3;
+}
+
+.tableshadow2:hover{
+    -webkit-box-shadow: 0 0 30px #FFC107;
+    box-shadow: 0 0 20px #FFC107;
+}
+
+.tableshadow3:hover{
+    -webkit-box-shadow: 0 0 30px #17A2B8;
+    box-shadow: 0 0 20px #17A2B8;
+}
+
+.tableshadow4:hover{
+    -webkit-box-shadow: 0 0 30px #DC3545;
+    box-shadow: 0 0 20px #DC3545;
+}
+
+.tableshadow5:hover{
+    -webkit-box-shadow: 0 0 30px #28A745;
+    box-shadow: 0 0 20px #28A745;
+} */
+
+.tableshadow{
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+
+
+.gfg_tooltip { 
+    position: relative; 
+} 
+  
+ .gfg_text { 
+    visibility: hidden; 
+    width: 220px; 
+    height:200px;
+    background-color: #DC3545; 
+    color: #fff; 
+    text-align: center; 
+    border-radius: 6px; 
+    padding: 5px 0; 
+    position: absolute; 
+    z-index: 1; 
+    top: 5%; 
+    right: 115%; 
+    text-transform: lowercase;
+} 
+  
+.gfg_text::after { 
+    content: ""; 
+    position: absolute; 
+    top: 50%; 
+    left: 100%; 
+    margin-top: -5px; 
+    border-width: 5px; 
+    border-style: solid; 
+    border-color: transparent transparent transparent black; 
+} 
+  
+.gfg_tooltip:hover .gfg_text { 
+    visibility: visible; 
+} 
