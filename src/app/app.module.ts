@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { HttpErrorInterceptor } from './shared/httpErrorInterceptor';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { HttpErrorInterceptor } from './shared/httpErrorInterceptor';
     AppRoutingModule
   ], 
   providers :[
-    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
+    { provide : LocationStrategy, useClass :PathLocationStrategy }
   ],
   bootstrap: [AppComponent]
 })
